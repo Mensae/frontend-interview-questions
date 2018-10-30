@@ -1,19 +1,21 @@
+/**
+ * Return true or false indicating whether the given string is a plaindrone
+ * (case and space insensitive).
+ * @param string
+ * @returns {boolean}
+ */
+
 /// solution
 
 function isPalindrome(string) {
-  let _string = string.replace(/\s/g, '').toLowerCase()
-  return reverse(_string) === _string
-}
-
-function reverse(string) {
-  return string.split('').reverse().join('')
+  return false;
 }
 
 /// tests
 
-import { test } from 'ava'
+import { test } from 'ava';
 
-test(t => t.is(isPalindrome(''), true))
-test(t => t.is(isPalindrome('abcdcba'), true))
-test(t => t.is(isPalindrome('abcd'), false))
-test(t => t.is(isPalindrome('A man a plan a canal Panama'), true))
+test(t => t.is(isPalindrome(''), true));
+test(t => t.is(isPalindrome('abcdcba'), true));
+test(t => t.is(isPalindrome('abcd'), false));
+test(t => t.is(isPalindrome('A man a plan a canal Panama'), true));

@@ -1,26 +1,25 @@
 /**
- * Note: We put the recursive call in tail position, so
- * that it can be optimized by the JavaScript compiler.
+ * Factorial - Returns a number that is the factorial of the given number.
+ *
+ * The factorial function (symbol: !) says to multiply all whole numbers from
+ * our chosen number down to 1.
+ *
+ * Examples:
+ *  4! = 4 × 3 × 2 × 1 = 24
+ *  7! = 7 × 6 × 5 × 4 × 3 × 2 × 1 = 5040
+ *  1! = 1
  */
 
 /// solution
 
-function tailFactorial(n, total) {
-  switch (n) {
-    case 0: return 1
-    case 1: return total
-    default: return tailFactorial(n - 1, n * total)
-  }
-}
-
 function factorial(n) {
-  return tailFactorial(n, 1)
+  return n;
 }
 
 /// tests
 
-import { test } from 'ava'
+import { test } from 'ava';
 
-test(t => t.is(factorial(0), 1))
-test(t => t.is(factorial(1), 1))
-test(t => t.is(factorial(6), 720))
+test(t => t.is(factorial(0), 1));
+test(t => t.is(factorial(1), 1));
+test(t => t.is(factorial(6), 720));
