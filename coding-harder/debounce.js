@@ -13,17 +13,4 @@ function debounce(fn, delay = 0) {
   return () => {};
 }
 
-/// tests
-
-jest.useFakeTimers();
-
-test('debounce', () => {
-  const func = jest.fn();
-  const debouncedFunc = debounce(func, 100);
-
-  debouncedFunc();
-  expect(func).toHaveBeenCalledTimes(0);
-
-  jest.advanceTimersByTime(101);
-  expect(func).toHaveBeenCalledTimes(1);
-});
+module.exports = debounce;

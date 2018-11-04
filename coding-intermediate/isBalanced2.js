@@ -13,18 +13,4 @@ function isBalanced2(string) {
   return false;
 }
 
-/// tests
-
-describe('isBalanced2', () => {
-  it('should return "true"', () => {
-    expect(isBalanced2('(foo { bar (baz) [boo] })')).toBe(true);
-  });
-
-  it('should return "false"', () => {
-    expect(isBalanced2('foo { bar { baz }')).toBe(false);
-  });
-
-  it('should return "false"', () => {
-    expect(isBalanced2('foo { (bar [baz] } )')).toBe(false);
-  });
-});
+module.exports = isBalanced2;

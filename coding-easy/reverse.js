@@ -17,14 +17,4 @@ function reverse(string) {
   return string;
 }
 
-/// tests
-
-describe('reverse', () => {
-  it('should return ""', () => {
-    expect(reverse('')).toBe('');
-  });
-
-  it('should return "fedcba"', () => {
-    expect(reverse('abcdef')).toBe('fedcba');
-  });
-});
+module.exports = reverse;

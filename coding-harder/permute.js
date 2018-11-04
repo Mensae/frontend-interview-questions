@@ -11,11 +11,4 @@ function permute(string) {
   return [];
 }
 
-/// tests
-
-describe('permute', () => {
-  it('should pass', () => {
-    expect(permute('')).toEqual([]);
-    expect(permute('abc')).toEqual(['abc', 'acb', 'bac', 'bca', 'cab', 'cba']);
-  });
-});
+module.exports = permute;
