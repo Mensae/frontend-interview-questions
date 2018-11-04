@@ -2,6 +2,7 @@
  * Like Object.assign, but merges objects deeply. For the sake of simplicity,
  * you can assume that objects can contain only numbers and other objects (and
  * not arrays, functions, etc.).
+ *
  * @param {Object} target
  * @param {Object} sources
  * @returns {Object}
@@ -15,14 +16,22 @@ function assignDeep(target, ...sources) {
 
 /// tests
 
-import { test } from 'ava';
+test('assignDeep #1', () => {
+  expect(assignDeep({ a: 1 }, {})).toEqual({ a: 1 });
+});
 
-test(t => t.deepEqual(assignDeep({ a: 1 }, {}), { a: 1 }));
-test(t => t.deepEqual(assignDeep({ a: 1 }, { a: 2 }), { a: 2 }));
-test(t => t.deepEqual(assignDeep({ a: 1 }, { a: { b: 2 } }), { a: { b: 2 } }));
-test(t =>
-  t.deepEqual(
-    assignDeep({ a: { b: { c: 1 } } }, { a: { b: { d: 2 } }, e: 3 }),
-    { a: { b: { c: 1, d: 2 } }, e: 3 },
-  ),
-);
+test('assignDeep #2', () => {
+  expect(assignDeep({ a: 1 }, { a: 2 })).toEqual({ a: 2 });
+});
+
+test('assignDeep #3', () => {
+  expect(assignDeep({ a: 1 }, { a: { b: 2 } })).toEqual({ a: { b: 2 } });
+});
+
+/* eslint-disable */
+test('assignDeep #4', () => {
+  expect(
+    assignDeep({ a: { b: { c: 1 } } }, { a: { b: { d: 2 } }, e: 3 })
+  ).toEqual({ a: { b: { c: 1, d: 2 } }, e: 3 });
+});
+/* eslint-enable */

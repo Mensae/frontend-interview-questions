@@ -1,5 +1,6 @@
 /**
  * Implement the debounce function.
+ *
  * @param {Function} fn
  * @param {number} delay
  * @returns {Function}
@@ -14,18 +15,15 @@ function debounce(fn, delay = 0) {
 
 /// tests
 
-import { test } from 'ava';
+jest.useFakeTimers();
 
-test.cb(t => {
-  t.plan(1);
-  let count = 0;
-  let a = () => {
-    count++;
-    t.is(count, 1);
-    t.end();
-  };
-  let b = debounce(a, 100);
-  b();
-  b();
-  b();
+test('debounce', () => {
+  const func = jest.fn();
+  const debouncedFunc = debounce(func, 100);
+
+  debouncedFunc();
+  expect(func).toHaveBeenCalledTimes(0);
+
+  jest.advanceTimersByTime(101);
+  expect(func).toHaveBeenCalledTimes(1);
 });

@@ -2,7 +2,8 @@
  * Like the isBalanced function you implemented before, but supports 3 types of
  * braces: curly {}, square [], and round ().
  * A string with interleaving braces should return false.
- * @param string
+ *
+ * @param {string} string
  * @returns {boolean}
  */
 
@@ -14,8 +15,16 @@ function isBalanced2(string) {
 
 /// tests
 
-import { test } from 'ava';
+describe('isBalanced2', () => {
+  it('should return "true"', () => {
+    expect(isBalanced2('(foo { bar (baz) [boo] })')).toBe(true);
+  });
 
-test(t => t.is(isBalanced2('(foo { bar (baz) [boo] })'), true));
-test(t => t.is(isBalanced2('foo { bar { baz }'), false));
-test(t => t.is(isBalanced2('foo { (bar [baz] } )'), false));
+  it('should return "false"', () => {
+    expect(isBalanced2('foo { bar { baz }')).toBe(false);
+  });
+
+  it('should return "false"', () => {
+    expect(isBalanced2('foo { (bar [baz] } )')).toBe(false);
+  });
+});

@@ -1,31 +1,36 @@
 {
   "name": "frontend-interview-questions",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Originally forked from version 1.0.0 of Boris Cherny <boris@performancejs.com> (https://performancejs.com)",
+  "engines": {
+    "npm": ">=5",
+    "node": ">=8.10.0"
+  },
   "scripts": {
-    "lint": "eslint .",
+    "lint": "npm run lint:js",
+    "lint:eslint": "eslint --ignore-path .gitignore",
+    "lint:eslint:fix": "eslint --ignore-path .gitignore --fix",
+    "lint:js": "npm run lint:eslint -- . ",
     "pretest": "npm run lint",
-    "tdd": "ava **/*.js -w",
-    "test": "ava **/*.js"
+    "tdd": "jest --watchAll",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/bcherny/frontend-interview-questions.git"
+    "url": "git+ssh://git@github.com/Mensae/frontend-interview-questions.git"
   },
-  "author": "Boris Cherny <boris@performancejs.com> (https://performancejs.com)",
+  "author": "Johan Meester",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bcherny/frontend-interview-questions/issues"
+    "url": "https://github.com/Mensae/frontend-interview-questions/issues"
   },
-  "homepage": "https://github.com/bcherny/frontend-interview-questions#readme",
+  "homepage": "https://github.com/Mensae/frontend-interview-questions#readme",
   "devDependencies": {
-    "ava": "~0.25.0",
-    "eslint": "~5.7.0",
+    "eslint": "~5.8.0",
     "eslint-config-prettier": "~3.1.0",
-    "eslint-plugin-import": "~2.14.0",
-    "eslint-plugin-node": "~7.0.1",
+    "eslint-plugin-node": "~8.0.0",
     "eslint-plugin-prettier": "~3.0.0",
+    "jest-cli": "23.6.0",
     "prettier": "~1.14.3"
   }
 }

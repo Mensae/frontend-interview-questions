@@ -1,30 +1,60 @@
 /**
  * Implement a BinarySearchTree class.
  * It should support 4 methods: add, has, remove, and size
+ *
  * @see {@link https://en.wikipedia.org/wiki/Binary_search_tree}
  */
-
 class BinarySearchTree {}
 
 /// tests
 
-import { test } from 'ava';
-
-test('BinarySearchTree', t => {
+describe('BinarySearchTree', () => {
   let tree = new BinarySearchTree();
-  tree.add(1, 2, 3, 4);
-  tree.add(5);
-  t.is(tree.has(2), true);
-  t.is(tree.has(5), true);
-  tree.remove(3);
-  t.is(tree.size(), 4);
-});
 
-test('BinarySearchTree#get', t => {
-  let tree = new BinarySearchTree();
-  t.is(tree.get(42), null);
-  tree.add(42, 43);
-  t.is(tree.get(42), 42);
-  t.is(tree.get(43), 43);
-  t.is(tree.get(44), null);
+  beforeAll(() => {
+    tree = new BinarySearchTree();
+  });
+
+  afterAll(() => {
+    tree = undefined;
+  });
+
+  it('should have an "add" method', () => {
+    const spy = jest.spyOn(tree, 'add');
+    tree.add(1, 2, 3, 4);
+    expect(spy).toHaveBeenCalled();
+    spy.mockRestore();
+  });
+
+  it('should have an "has" method', () => {
+    tree.add(1, 2, 3, 4);
+    tree.add(5);
+    expect(tree.has(2)).toBe(true);
+    expect(tree.has(5)).toBe(true);
+  });
+
+  it('should have a "remove" method', () => {
+    tree.add(1, 2, 3, 4);
+    tree.remove(3);
+    expect(tree.has(3)).toBe(false);
+  });
+
+  it('should have a "size" method', () => {
+    tree.add(1, 2, 3, 4);
+    tree.add(5);
+    tree.remove(3);
+    expect(tree.size()).toBe(4);
+  });
+
+  it('should have a "get" method', () => {
+    tree = new BinarySearchTree();
+    const spy = jest.spyOn(tree, 'get');
+    expect(tree.get(42)).toBe(null);
+    expect(spy).toHaveBeenCalled();
+    tree.add(42, 43);
+    expect(tree.get(42)).toBe(42);
+    expect(tree.get(43)).toBe(43);
+    expect(tree.get(44)).toBe(null);
+    spy.mockRestore();
+  });
 });

@@ -1,5 +1,11 @@
-/// solution
-
+/**
+ * Filter higher order function
+ *
+ * @param {Array} array
+ * @param {Function} fn
+ * @returns {Array}
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Filter}
+ */
 function filter(array, fn) {
   let result = [];
 
@@ -13,8 +19,4 @@ function filter(array, fn) {
   return result;
 }
 
-/// tests
-
-import { test } from 'ava';
-
-test(t => t.deepEqual(filter([1, 2, 3, 4], n => n < 3), [1, 2]));
+module.exports = filter;

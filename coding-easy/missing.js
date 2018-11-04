@@ -3,7 +3,8 @@
  * some number n, and returns the missing number in the sequence (there are
  * either no missing numbers, or exactly one missing number).
  * Can you do it in O(N) time? Hint: There’s a clever formula you can use.
- * @param array
+ *
+ * @param {Array} array
  * @returns {number|undefined}
  */
 
@@ -15,10 +16,24 @@ function missing(array) {
 
 /// tests
 
-import { test } from 'ava';
+describe('missing', () => {
+  it('should return "undefined"', () => {
+    expect(missing([])).toBe(undefined);
+  });
 
-test(t => t.is(missing([]), undefined));
-test(t => t.is(missing([1, 4, 3]), 2));
-test(t => t.is(missing([2, 3, 4]), 1));
-test(t => t.is(missing([5, 1, 4, 2]), 3));
-test(t => t.is(missing([1, 2, 3, 4]), undefined));
+  it('should return "2"', () => {
+    expect(missing([1, 4, 3])).toBe(2);
+  });
+
+  it('should return "1"', () => {
+    expect(missing([2, 3, 4])).toBe(1);
+  });
+
+  it('should return "3"', () => {
+    expect(missing([5, 1, 4, 2])).toBe(3);
+  });
+
+  it('should return "undefined"', () => {
+    expect(missing([1, 2, 3, 4])).toBe(undefined);
+  });
+});

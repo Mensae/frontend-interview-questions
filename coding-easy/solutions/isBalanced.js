@@ -1,5 +1,10 @@
-/// solution
-
+/**
+ * Takes a string and returns true or false indicating whether its curly braces
+ * are balanced.
+ *
+ * @param {string} string
+ * @returns {boolean}
+ */
 function isBalanced(string) {
   let count = 0;
 
@@ -22,13 +27,4 @@ function isBalanced(string) {
   return count === 0;
 }
 
-/// tests
-
-import { test } from 'ava';
-
-test(t => t.is(isBalanced('}{'), false));
-test(t => t.is(isBalanced('{{}'), false));
-test(t => t.is(isBalanced('{}{}'), true));
-test(t => t.is(isBalanced('foo { bar { baz } boo }'), true));
-test(t => t.is(isBalanced('foo { bar { baz }'), false));
-test(t => t.is(isBalanced('foo { bar } }'), false));
+module.exports = isBalanced;

@@ -1,42 +1,33 @@
-/// solution
-
 /**
- * LinkedList has 2 members, head and tail:
+ * Implement a LinkedList
+ *
+ * The LinkedList has 2 members, head and tail:
  * - head is a value
  * - tail is either another LinkedList, or null
+ *
+ * Your LinkedList should support just 2 methods, add, has.
  */
-export class LinkedList {
-  constructor(head, ...tail) {
-    this.head = head;
-    this.tail = tail.length ? new LinkedList(...tail) : null;
-  }
-  add(item) {
-    if (this.tail) {
-      this.tail.add(item);
-    } else {
-      this.tail = new LinkedList(item);
-    }
-  }
-  has(item) {
-    if (this.head === item) {
-      return true;
-    }
-    if (this.tail === null) {
-      return false;
-    }
-    return this.tail.has(item);
-  }
-}
+
+/// solution
+
+class LinkedList {}
 
 // tests
 
-import test from 'ava';
+describe('LinkedList', () => {
+  const list = new LinkedList(1, 2, 3);
 
-test('LinkedList', t => {
-  let list = new LinkedList(1, 2, 3);
-  list.add(4);
-  list.add(5);
-  t.is(list.has(1), true);
-  t.is(list.has(4), true);
-  t.is(list.has(6), false);
+  it('should have an "add" method', () => {
+    const spy = jest.spyOn(list, 'add');
+    list.add(4);
+    list.add(5);
+    expect(spy).toHaveBeenCalledTimes(2);
+    spy.mockRestore();
+  });
+
+  it('should have an "has" method', () => {
+    expect(list.has(1)).toBe(true);
+    expect(list.has(4)).toBe(true);
+    expect(list.has(6)).toBe(false);
+  });
 });

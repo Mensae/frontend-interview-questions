@@ -6,6 +6,7 @@
  * given unicode characters from the supplementary planes (including Chinese
  * characters, emojis, etc.). See discussion here:
  * @see {@link https://github.com/bcherny/frontend-interview-questions/issues/6}
+ *
  * @param string
  * @returns {string}
  */
@@ -18,7 +19,12 @@ function reverse(string) {
 
 /// tests
 
-import { test } from 'ava';
+describe('reverse', () => {
+  it('should return ""', () => {
+    expect(reverse('')).toBe('');
+  });
 
-test(t => t.is(reverse(''), ''));
-test(t => t.is(reverse('abcdef'), 'fedcba'));
+  it('should return "fedcba"', () => {
+    expect(reverse('abcdef')).toBe('fedcba');
+  });
+});

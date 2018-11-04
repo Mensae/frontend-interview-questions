@@ -27,10 +27,4 @@ function factorial(n) {
   return tailFactorial(n, 1);
 }
 
-/// tests
-
-import { test } from 'ava';
-
-test(t => t.is(factorial(0), 1));
-test(t => t.is(factorial(1), 1));
-test(t => t.is(factorial(6), 720));
+module.exports = factorial;

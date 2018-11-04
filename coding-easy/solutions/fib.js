@@ -1,5 +1,10 @@
-/// solution
-
+/**
+ * Returns the nth Fibonacci number.
+ *
+ * @param {number} n
+ * @returns {number}
+ * @see {@link https://en.wikipedia.org/wiki/Fibonacci_number}
+ */
 function fib(n) {
   switch (n) {
     case 0:
@@ -11,11 +16,4 @@ function fib(n) {
   }
 }
 
-/// tests
-
-import { test } from 'ava';
-
-test(t => t.is(fib(0), 0));
-test(t => t.is(fib(1), 1));
-test(t => t.is(fib(10), 55));
-test(t => t.is(fib(20), 6765));
+module.exports = fib;

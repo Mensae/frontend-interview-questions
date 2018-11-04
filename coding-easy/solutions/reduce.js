@@ -1,5 +1,12 @@
-/// solution
-
+/**
+ * Implement the reduce function.
+ *
+ * @param {Array} array
+ * @param {Function} fn
+ * @param {*} value
+ * @returns {*}
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce}
+ */
 function reduce(array, fn, value) {
   for (let i = 0; i < array.length; i += 1) {
     let current = array[i];
@@ -9,8 +16,4 @@ function reduce(array, fn, value) {
   return value;
 }
 
-/// tests
-
-import { test } from 'ava';
-
-test(t => t.is(reduce([1, 2, 3, 4], (a, b) => a + b, 0), 10));
+module.exports = reduce;

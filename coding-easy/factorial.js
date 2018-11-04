@@ -18,8 +18,8 @@ function factorial(n) {
 
 /// tests
 
-import { test } from 'ava';
-
-test(t => t.is(factorial(0), 1));
-test(t => t.is(factorial(1), 1));
-test(t => t.is(factorial(6), 720));
+test('factorial', () => {
+  expect(factorial(0)).teBe(1);
+  expect(factorial(1)).toBe(1);
+  expect(factorial(6)).toBe(720);
+});

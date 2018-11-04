@@ -7,9 +7,20 @@
 
 /// tests
 
-import { test } from 'ava';
+describe('fib2', () => {
+  it('should return 0', () => {
+    expect(fib2(0)).toBe(0);
+  });
 
-test(t => t.is(fib2(0), 0));
-test(t => t.is(fib2(1), 1));
-test(t => t.is(fib2(10), 55));
-test(t => t.is(fib2(50), 12586269025));
+  it('should return 1', () => {
+    expect(fib2(1)).toBe(1);
+  });
+
+  it('should return 55', () => {
+    expect(fib2(10)).toBe(55);
+  });
+
+  it('should return 12586269025', () => {
+    expect(fib2(50)).toBe(12586269025);
+  });
+});

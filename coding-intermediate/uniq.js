@@ -1,6 +1,7 @@
 /**
  * Takes an array of numbers, and returns the unique numbers. Can you do it in
  * O(N) time?
+ *
  * @param array
  * @returns {Object[]}
  */
@@ -13,7 +14,12 @@ function uniq(array) {
 
 /// tests
 
-import { test } from 'ava';
+describe('uniq', () => {
+  it('should return the unique numbers #1', () => {
+    expect(uniq([])).toEqual([]);
+  });
 
-test(t => t.deepEqual(uniq([]), []));
-test(t => t.deepEqual(uniq([1, 4, 2, 2, 3, 4, 8]), [1, 4, 2, 3, 8]));
+  it('should return the unique numbers #2', () => {
+    expect(uniq([1, 4, 2, 2, 3, 4, 8])).toEqual([1, 4, 2, 3, 8]);
+  });
+});

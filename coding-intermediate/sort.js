@@ -1,5 +1,6 @@
 /**
  * Implement the sort function to sort an array of numbers in O(N×log(N)) time.
+ *
  * @param {Array} array
  * @returns {Array}
  */
@@ -12,9 +13,19 @@ function sort(array) {
 
 /// tests
 
-import { test } from 'ava';
+describe('sort', () => {
+  it('should return the sorted array #1', () => {
+    expect(sort([])).toEqual([]);
+  });
 
-test(t => t.deepEqual(sort([]), []));
-test(t =>
-  t.deepEqual(sort([-4, 1, Infinity, 3, 3, 0]), [-4, 0, 1, 3, 3, Infinity]),
-);
+  it('should return the sorted array #2', () => {
+    expect(sort([-4, 1, Infinity, 3, 3, 0])).toEqual([
+      -4,
+      0,
+      1,
+      3,
+      3,
+      Infinity,
+    ]);
+  });
+});

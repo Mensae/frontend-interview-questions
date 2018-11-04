@@ -1,6 +1,7 @@
 /**
  * Return true or false indicating whether the given number appears in the given
  * sorted array. Can you do it in O(log(N)) time?
+ *
  * @param {Array} array
  * @param {number} number
  * @returns {boolean}
@@ -14,8 +15,16 @@ function includes(array, number) {
 
 /// tests
 
-import { test } from 'ava';
+describe('includes', () => {
+  it('should return "true"', () => {
+    expect(includes([1, 3, 8, 10], 8)).toBe(true);
+  });
 
-test(t => t.is(includes([1, 3, 8, 10], 8), true));
-test(t => t.is(includes([1, 3, 8, 8, 15], 15), true));
-test(t => t.is(includes([1, 3, 8, 10, 15], 9), false));
+  it('should return "true"', () => {
+    expect(includes([1, 3, 8, 8, 15], 15)).toBe(true);
+  });
+
+  it('should return "false"', () => {
+    expect(includes([1, 3, 8, 10, 15], 9)).toBe(false);
+  });
+});

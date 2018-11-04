@@ -1,5 +1,11 @@
-/// solution
-
+/**
+ * Find the intersection of two arrays. Can you do it in O(M+N) time (where M
+ * and N are the lengths of the two arrays)?
+ *
+ * @param {Array} left
+ * @param {Array} right
+ * @returns {Array}
+ */
 function intersection(left, right) {
   // first build an object from the left array,
   // because checking if an object has a certain key
@@ -22,9 +28,4 @@ function intersection(left, right) {
   }, []);
 }
 
-/// tests
-
-import { test } from 'ava';
-
-test(t => t.deepEqual(intersection([1, 5, 4, 2], [8, 91, 4, 1, 3]), [4, 1]));
-test(t => t.deepEqual(intersection([1, 5, 4, 2], [7, 12]), []));
+module.exports = intersection;

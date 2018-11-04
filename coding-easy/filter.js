@@ -1,8 +1,8 @@
 /**
  * filter - Implement the filter function.
  *
- * @param array
- * @param fn
+ * @param {Array} array
+ * @param {Function} fn
  * @returns {Array}
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Filter}
  */
@@ -15,6 +15,6 @@ function filter(array, fn) {
 
 /// tests
 
-import { test } from 'ava';
-
-test(t => t.deepEqual(filter([1, 2, 3, 4], n => n < 3), [1, 2]));
+test('filter', () => {
+  expect(filter([1, 2, 3, 4], n => n < 3)).toEqual([1, 2]);
+});

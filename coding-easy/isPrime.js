@@ -16,13 +16,36 @@ function isPrime(n) {
 
 /// tests
 
-import { test } from 'ava';
+describe('isPrime', () => {
+  it('should return "false"', () => {
+    expect(isPrime(0)).toBe(false);
+  });
 
-test(t => t.is(isPrime(0), false));
-test(t => t.is(isPrime(1), false));
-test(t => t.is(isPrime(2), true));
-test(t => t.is(isPrime(9), false));
-test(t => t.is(isPrime(17), true));
-test(t => t.is(isPrime(25), false));
-test(t => t.is(isPrime(73), true));
-test(t => t.is(isPrime(10000000000000), false));
+  it('should return "false"', () => {
+    expect(isPrime(1)).toBe(false);
+  });
+
+  it('should return "true"', () => {
+    expect(isPrime(2)).toBe(true);
+  });
+
+  it('should return "false"', () => {
+    expect(isPrime(9)).toBe(false);
+  });
+
+  it('should return "true"', () => {
+    expect(isPrime(17)).toBe(true);
+  });
+
+  it('should return "false"', () => {
+    expect(isPrime(25)).toBe(false);
+  });
+
+  it('should return "true"', () => {
+    expect(isPrime(73)).toBe(true);
+  });
+
+  it('should return "false"', () => {
+    expect(isPrime(10000000000000)).toBe(false);
+  });
+});

@@ -1,5 +1,9 @@
-/// solution
-
+/**
+ * Return an array of strings, containing every permutation of the given string.
+ *
+ * @param {string} string
+ * @returns {Array}
+ */
 function permute(string) {
   return permuteArray(string.split(''));
 }
@@ -28,10 +32,4 @@ function without(array, a) {
   return bs;
 }
 
-/// tests
-
-test(t => t.deepEqual(permute(''), []));
-test(t =>
-  // eslint-disable-next-line prettier/prettier
-  t.deepEqual(permute('abc'), ['abc', 'acb', 'bac', 'bca', 'cab', 'cba'])
-);
+module.exports = permute;

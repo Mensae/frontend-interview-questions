@@ -1,6 +1,7 @@
 /**
  * Implement seq in terms of reduceAsync. seq takes an array of functions that
  * return promises, and resolves them one after the other.
+ *
  * @param {Array} array
  * @returns {Promise<*>}
  */
@@ -11,13 +12,16 @@ let seq = array => {};
 
 /// tests
 
-import { test } from 'ava';
+describe('seq', () => {
+  const a = () => Promise.resolve('a');
+  const b = () => Promise.resolve('b');
+  const c = () => Promise.resolve('c');
 
-test(async t => {
-  let a = () => Promise.resolve('a');
-  let b = () => Promise.resolve('b');
-  let c = () => Promise.resolve('c');
+  it('should pass #1', async () => {
+    expect(await seq([a, b, c])).toEqual(['a', 'b', 'c']);
+  });
 
-  t.deepEqual(await seq([a, b, c]), ['a', 'b', 'c']);
-  t.deepEqual(await seq([a, c, b]), ['a', 'c', 'b']);
+  it('should pass #2', async () => {
+    expect(await seq([a, c, b])).toEqual(['a', 'c', 'b']);
+  });
 });

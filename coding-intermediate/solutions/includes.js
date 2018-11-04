@@ -1,14 +1,25 @@
 /**
- * We use a binary search to quickly search the given sorted array for the given number.
+ * Return true or false indicating whether the given number appears in the given
+ *
+ * Note: We use a binary search to quickly search the given sorted array for the given number.
+ *
+ * @param {Array} array
+ * @param {number} number
+ * @returns {boolean}
  */
-
-/// solution
-
 function includes(array, number) {
   let index = binarySearch(array, number, 0, array.length - 1);
   return index !== undefined;
 }
 
+/**
+ *
+ * @param {Array} array
+ * @param {number} number
+ * @param {number} leftIndex
+ * @param {number} rightIndex
+ * @returns {number|undefined}
+ */
 function binarySearch(array, number, leftIndex, rightIndex) {
   let midIndex = Math.floor((rightIndex + leftIndex) / 2);
   let current = array[midIndex];
@@ -24,10 +35,4 @@ function binarySearch(array, number, leftIndex, rightIndex) {
   return binarySearch(array, number, midIndex + 1, rightIndex);
 }
 
-/// tests
-
-import { test } from 'ava';
-
-test(t => t.is(includes([1, 3, 8, 10], 8), true));
-test(t => t.is(includes([1, 3, 8, 8, 15], 15), true));
-test(t => t.is(includes([1, 3, 8, 10, 15], 9), false));
+module.exports = includes;

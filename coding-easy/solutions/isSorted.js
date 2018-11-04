@@ -1,5 +1,10 @@
-/// solution
-
+/**
+ * Returns true or false, indicating whether the given array of numbers is
+ * sorted.
+ *
+ * @param {Array} array
+ * @returns {boolean}
+ */
 function isSorted(array) {
   for (let i = 0; i < array.length; i += 1) {
     let current = array[i];
@@ -14,10 +19,4 @@ function isSorted(array) {
   return true;
 }
 
-/// tests
-
-import { test } from 'ava';
-
-test(t => t.is(isSorted([]), true));
-test(t => t.is(isSorted([-Infinity, -5, 0, 3, 9]), true));
-test(t => t.is(isSorted([3, 9, -3, 10]), false));
+module.exports = isSorted;

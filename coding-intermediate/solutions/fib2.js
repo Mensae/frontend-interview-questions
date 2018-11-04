@@ -15,6 +15,11 @@ let fib2 = memoize(n => {
   }
 });
 
+/**
+ *
+ * @param {Function} fn
+ * @returns {function(*=): any}
+ */
 function memoize(fn) {
   let cache = new Map();
   return _ => {
@@ -25,11 +30,4 @@ function memoize(fn) {
   };
 }
 
-/// tests
-
-import { test } from 'ava';
-
-test(t => t.is(fib2(0), 0));
-test(t => t.is(fib2(1), 1));
-test(t => t.is(fib2(10), 55));
-test(t => t.is(fib2(50), 12586269025));
+module.exports = fib2;

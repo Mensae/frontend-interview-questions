@@ -1,8 +1,9 @@
 /**
  * Implement the indexOf function for arrays.
- * @param array
- * @param item
- * @returns {number}
+ *
+ * @param {Array} array
+ * @param {*} item
+ * @returns {number} [0|-1]
  * @see {@link https://developer.mozilla.org/nl/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf}
  */
 
@@ -14,7 +15,12 @@ function indexOf(array, item) {
 
 /// tests
 
-import { test } from 'ava';
+describe('indexOf', () => {
+  it('should return 0', () => {
+    expect(indexOf([1, 2, 3], 1)).toBe(0);
+  });
 
-test(t => t.is(indexOf([1, 2, 3], 1), 0));
-test(t => t.is(indexOf([1, 2, 3], 4), -1));
+  it('should return -1', () => {
+    expect(indexOf([1, 2, 3], 4)).toBe(-1);
+  });
+});

@@ -1,5 +1,7 @@
-/// solution
-
+/**
+ * Implementation of a HashMap class without using JavaScript’s built-in
+ * objects ({}) or Maps.
+ */
 class HashMap {
   constructor() {
     this.data = [];
@@ -46,16 +48,4 @@ function hash(string) {
     .reduce((a, b) => (a << 5) + a + b.charCodeAt(0), 5381);
 }
 
-/// tests
-
-import { test } from 'ava';
-
-test('HashMap', t => {
-  let map = new HashMap();
-  map.set('abc', 123);
-  map.set('foo', 'bar');
-  map.set('foo', 'baz');
-  t.is(map.get('abc'), 123);
-  t.is(map.get('foo'), 'baz');
-  t.is(map.get('def'), undefined);
-});
+module.exports = HashMap;

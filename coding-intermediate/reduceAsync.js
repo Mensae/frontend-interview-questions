@@ -1,6 +1,7 @@
 /**
  * Like the reduce you implemented in the Easy section, but each item must be
  * resolved before continuing onto the next.
+ *
  * @param {Array} array
  * @param {Function} fn
  * @param {*} value
@@ -13,19 +14,20 @@ let reduceAsync = (array, fn, value) => {};
 
 /// tests
 
-import { test } from 'ava';
+describe('reduceAsync', () => {
+  const a = () => Promise.resolve('a');
+  const b = () => Promise.resolve('b');
+  const c = () => new Promise(resolve => setTimeout(() => resolve('c'), 100));
 
-test(async t => {
-  let a = () => Promise.resolve('a');
-  let b = () => Promise.resolve('b');
-  let c = () => new Promise(resolve => setTimeout(() => resolve('c'), 100));
+  it('#1', async () => {
+    expect(
+      await reduceAsync([a, b, c], (acc, value) => [...acc, value], []),
+    ).toEqual(['a', 'b', 'c']);
+  });
 
-  t.deepEqual(
-    await reduceAsync([a, b, c], (acc, value) => [...acc, value], []),
-    ['a', 'b', 'c'],
-  );
-  t.deepEqual(
-    await reduceAsync([a, c, b], (acc, value) => [...acc, value], ['d']),
-    ['d', 'a', 'c', 'b'],
-  );
+  it('#2', async () => {
+    expect(
+      await reduceAsync([a, c, b], (acc, value) => [...acc, value], ['d']),
+    ).toEqual(['d', 'a', 'c', 'b']);
+  });
 });

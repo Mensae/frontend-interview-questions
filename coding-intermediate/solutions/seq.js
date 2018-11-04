@@ -1,23 +1,25 @@
-/// solution
-
-let reduceAsync = async (array, fn, value) => {
+/**
+ * reduceAsync
+ *
+ * @param {Array} array
+ * @param {Function} fn
+ * @param {*} value
+ * @returns {Promise<*>}
+ */
+const reduceAsync = async (array, fn, value) => {
   for (let a of array) {
     value = fn(value, await a());
   }
   return value;
 };
 
-let seq = array => reduceAsync(array, (acc, value) => [...acc, value], []);
+/**
+ * seq - takes an array of functions that return promises, and resolves them one
+ * after the other.
+ *
+ * @param {Array} array
+ * @returns {Promise<*>}
+ */
+const seq = array => reduceAsync(array, (acc, value) => [...acc, value], []);
 
-/// tests
-
-import { test } from 'ava';
-
-test(async t => {
-  let a = () => Promise.resolve('a');
-  let b = () => Promise.resolve('b');
-  let c = () => Promise.resolve('c');
-
-  t.deepEqual(await seq([a, b, c]), ['a', 'b', 'c']);
-  t.deepEqual(await seq([a, c, b]), ['a', 'c', 'b']);
-});
+module.exports = seq;

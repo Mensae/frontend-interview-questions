@@ -1,11 +1,11 @@
 /**
- * This is an implementation of the mergesort algorithm.
+ * This is an implementation of the Mergesort algorithm.
  * There are other O(N * log(N)) sort algorithms, but
  * this is probably the simplest.
+ *
+ * @param {Array} array
+ * @returns {Array}
  */
-
-/// solution
-
 function sort(array) {
   if (array.length < 2) {
     return array;
@@ -18,6 +18,12 @@ function sort(array) {
   return merge(sort(left), sort(right));
 }
 
+/**
+ *
+ * @param {Array} left
+ * @param {Array} right
+ * @returns {Array}
+ */
 function merge(left, right) {
   let result = [];
   let indexLeft = 0;
@@ -34,11 +40,4 @@ function merge(left, right) {
   return result.concat(left.slice(indexLeft)).concat(right.slice(indexRight));
 }
 
-/// tests
-
-import { test } from 'ava';
-
-test(t => t.deepEqual(sort([]), []));
-test(t =>
-  t.deepEqual(sort([-4, 1, Infinity, 3, 3, 0]), [-4, 0, 1, 3, 3, Infinity]),
-);
+module.exports = sort;

@@ -3,19 +3,19 @@ const fs = require('fs');
 const prettierOptions = JSON.parse(fs.readFileSync('./.prettierrc', 'utf8'));
 
 module.exports = {
-  'extends': ['plugin:prettier/recommended'],
-  'plugins': ['prettier'],
+  extends: ['plugin:prettier/recommended'],
+  plugins: ['prettier'],
   env: {
     browser: false,
     node: true,
-    jest: false,
+    jest: true,
     es6: true,
   },
   parserOptions: {
-    ecmaVersion: 6,
-    sourceType: 'module',
+    ecmaVersion: 8,
+    sourceType: 'script',
   },
-  'rules': {
+  rules: {
     'prettier/prettier': ['error', prettierOptions],
     'arrow-body-style': [2, 'as-needed'],
     'class-methods-use-this': 0,

@@ -1,7 +1,8 @@
 /**
  * Return an array of strings, containing every permutation of the given string.
+ *
  * @param {string} string
- * @returns {Array|*}
+ * @returns {Array}
  */
 
 /// solution
@@ -12,10 +13,9 @@ function permute(string) {
 
 /// tests
 
-import { test } from 'ava';
-
-test(t => t.deepEqual(permute(''), []));
-test(t =>
-  // eslint-disable-next-line prettier/prettier
-  t.deepEqual(permute('abc'), ['abc', 'acb', 'bac', 'bca', 'cab', 'cba'])
-);
+describe('permute', () => {
+  it('should pass', () => {
+    expect(permute('')).toEqual([]);
+    expect(permute('abc')).toEqual(['abc', 'acb', 'bac', 'bca', 'cab', 'cba']);
+  });
+});

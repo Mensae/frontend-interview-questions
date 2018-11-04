@@ -1,7 +1,14 @@
-/// solution
-
+/**
+ * Like the isBalanced function you implemented before, but supports 3 types of
+ * braces: curly {}, square [], and round ().
+ * A string with interleaving braces should return false.
+ *
+ * @param {string} string
+ * @returns {boolean}
+ */
 function isBalanced2(string) {
-  let stack = new Stack();
+  const stack = new Stack();
+
   for (let letter of string) {
     switch (letter) {
       case '{':
@@ -19,18 +26,32 @@ function isBalanced2(string) {
         }
     }
   }
+
   return stack.size() === 0;
 }
 
-let pairs = {
+/**
+ *
+ * @type {{'(': string, '[': string, '{': string}}
+ */
+const pairs = {
   '(': ')',
   '[': ']',
   '{': '}',
 };
+
+/**
+ *
+ * @param {string} letter
+ * @returns {string}
+ */
 function pairOf(letter) {
   return pairs[letter];
 }
 
+/**
+ *
+ */
 class Stack {
   constructor() {
     this.items = [];
@@ -49,10 +70,4 @@ class Stack {
   }
 }
 
-/// tests
-
-import { test } from 'ava';
-
-test(t => t.is(isBalanced2('(foo { bar (baz) [boo] })'), true));
-test(t => t.is(isBalanced2('foo { bar { baz }'), false));
-test(t => t.is(isBalanced2('foo { (bar [baz] } )'), false));
+module.exports = isBalanced2;
