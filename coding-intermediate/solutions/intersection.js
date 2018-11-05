@@ -14,7 +14,7 @@ function intersection(left, right) {
   // if we didn't use this object, we'd have to check
   // if result contains current on every turn of the
   // loop, which would take up to O(N * log(N)) time.
-  let seen = left.reduce((seen, item) => {
+  const seen = left.reduce((seen, item) => {
     seen[item] = true;
     return seen;
   }, {});

@@ -60,7 +60,7 @@ class BinarySearchTree {
         if (node.right === null) return node.left;
         if (node.left === null) return node.right;
 
-        let t = node;
+        const t = node;
         node = min(t.right);
         node.right = removeMin(t.right);
         node.left = t.left;

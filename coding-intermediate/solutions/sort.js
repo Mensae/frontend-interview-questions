@@ -11,9 +11,9 @@ function sort(array) {
     return array;
   }
 
-  let mid = Math.floor(array.length / 2);
-  let left = array.slice(0, mid);
-  let right = array.slice(mid);
+  const mid = Math.floor(array.length / 2);
+  const left = array.slice(0, mid);
+  const right = array.slice(mid);
 
   return merge(sort(left), sort(right));
 }
@@ -25,7 +25,7 @@ function sort(array) {
  * @returns {Array}
  */
 function merge(left, right) {
-  let result = [];
+  const result = [];
   let indexLeft = 0;
   let indexRight = 0;
 

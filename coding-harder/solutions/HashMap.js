@@ -7,8 +7,8 @@ class HashMap {
     this.data = [];
   }
   get(key) {
-    let index = hash(key);
-    let slot = this.data[index];
+    const index = hash(key);
+    const slot = this.data[index];
     if (!slot) {
       return undefined;
     }
@@ -19,7 +19,7 @@ class HashMap {
     }
   }
   set(key, value) {
-    let index = hash(key);
+    const index = hash(key);
 
     if (!this.data[index]) {
       this.data[index] = [];

@@ -6,7 +6,7 @@
  * @returns {boolean}
  */
 function isPalindrome(string) {
-  let _string = string.replace(/\s/g, '').toLowerCase();
+  const _string = string.replace(/\s+/g, '').toLowerCase();
   return reverse(_string) === _string;
 }
 

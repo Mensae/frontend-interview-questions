@@ -1,9 +1,7 @@
 /**
- * We memoize the fib function to avoid an exponential number of repeated computations.
+ * We memoize the fib function to avoid an exponential number of repeated
+ * computations.
  */
-
-/// solution
-
 let fib2 = memoize(n => {
   switch (n) {
     case 0:
@@ -21,7 +19,7 @@ let fib2 = memoize(n => {
  * @returns {function(*=): any}
  */
 function memoize(fn) {
-  let cache = new Map();
+  const cache = new Map();
   return _ => {
     if (!cache.has(_)) {
       cache.set(_, fn(_));

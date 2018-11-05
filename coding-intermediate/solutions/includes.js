@@ -8,7 +8,7 @@
  * @returns {boolean}
  */
 function includes(array, number) {
-  let index = binarySearch(array, number, 0, array.length - 1);
+  const index = binarySearch(array, number, 0, array.length - 1);
   return index !== undefined;
 }
 
@@ -21,17 +21,21 @@ function includes(array, number) {
  * @returns {number|undefined}
  */
 function binarySearch(array, number, leftIndex, rightIndex) {
-  let midIndex = Math.floor((rightIndex + leftIndex) / 2);
-  let current = array[midIndex];
+  const midIndex = Math.floor((rightIndex + leftIndex) / 2);
+  const current = array[midIndex];
+
   if (rightIndex < leftIndex) {
     return undefined;
   }
+
   if (number === current) {
     return midIndex;
   }
+
   if (number < current) {
     return binarySearch(array, number, leftIndex, midIndex - 1);
   }
+
   return binarySearch(array, number, midIndex + 1, rightIndex);
 }
 

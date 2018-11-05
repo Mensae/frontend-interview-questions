@@ -10,7 +10,8 @@ function filter(array, fn) {
   let result = [];
 
   for (let i = 0; i < array.length; i += 1) {
-    let current = array[i];
+    const current = array[i];
+
     if (fn(current)) {
       result.push(current);
     }

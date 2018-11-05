@@ -7,8 +7,8 @@
  */
 function isSorted(array) {
   for (let i = 0; i < array.length; i += 1) {
-    let current = array[i];
-    let next = array[i + 1];
+    const current = array[i];
+    const next = array[i + 1];
 
     if (next && current > next) {
       // exit as soon as we know the array isn't sorted
